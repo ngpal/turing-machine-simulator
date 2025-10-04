@@ -1,4 +1,45 @@
-q1
+q_accept
 
-(q0, a) -> (q0, a, >)
-(q0, _) -> (q1, _, <)
+(q0, a) -> (q1, X, >)
+(q0, b) -> (q2, Y, >)
+(q0, X) -> (q0, X, >)
+(q0, Y) -> (q0, Y, >)
+(q0, _) -> (q_accept, _, <)
+
+# find matching 'a' for X
+(q1, a) -> (q1, a, >)
+(q1, b) -> (q1, b, >)
+(q1, X) -> (q1, X, >)
+(q1, Y) -> (q1, Y, >)
+(q1, _) -> (q3, _, <)
+
+# check rightmost match for 'a'
+(q3, a) -> (q4, X, <)
+(q3, b) -> (q_reject, b, <)
+(q3, X) -> (q3, X, <)
+(q3, Y) -> (q3, Y, <)
+
+# return left to start
+(q4, a) -> (q4, a, <)
+(q4, b) -> (q4, b, <)
+(q4, X) -> (q4, X, <)
+(q4, Y) -> (q4, Y, <)
+(q4, _) -> (q0, _, >)
+
+# same logic for 'b'
+(q2, a) -> (q2, a, >)
+(q2, b) -> (q2, b, >)
+(q2, X) -> (q2, X, >)
+(q2, Y) -> (q2, Y, >)
+(q2, _) -> (q5, _, <)
+
+(q5, b) -> (q6, Y, <)
+(q5, a) -> (q_reject, a, <)
+(q5, X) -> (q5, X, <)
+(q5, Y) -> (q5, Y, <)
+
+(q6, a) -> (q6, a, <)
+(q6, b) -> (q6, b, <)
+(q6, X) -> (q6, X, <)
+(q6, Y) -> (q6, Y, <)
+(q6, _) -> (q0, _, >)
