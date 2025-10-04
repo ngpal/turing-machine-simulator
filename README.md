@@ -1,4 +1,4 @@
-# Turing Machine Simulator (Rust)
+# Turing Machine Simulator
 
 A simple command-line Turing machine simulator written in Rust.\
 It reads a transition table from a text file, asks for an input string, and simulates the machine until it halts.
