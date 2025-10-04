@@ -3,8 +3,6 @@
 A simple command-line Turing machine simulator written in Rust.\
 It reads a transition table from a text file, asks for an input string, and simulates the machine until it halts.
 
----
-
 ## Table of Contents
 
 - [Build & Run](#build-run)
@@ -12,8 +10,6 @@ It reads a transition table from a text file, asks for an input string, and simu
 - [Features](#features)
 - [Implementation Notes](#implementation-notes)
 - [Roadmap](#roadmap)
-
----
 
 ## Build & Run
 
